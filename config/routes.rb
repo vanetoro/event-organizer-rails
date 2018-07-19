@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'application#welcome'
 
   get 'hosts/signin', to: 'hosts#signin'
-  get 'hosts/signup', to: 'hosts#signup'
-  get 'guests/signin', to:'guest#signin'
+
+  get 'guests/signin', to:'guests#signin'
+
+  resources :hosts, only: [:new]
 end
