@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_20_010453) do
+ActiveRecord::Schema.define(version: 2018_07_20_012314) do
 
   create_table "event_guests", force: :cascade do |t|
-    t.integer "guest_id"
     t.integer "event_id"
+    t.integer "guest_id"
     t.boolean "rsvp", default: false
   end
 

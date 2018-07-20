@@ -1,5 +1,9 @@
 <h3>Guest Sign-In</h3>
 
 
-
+<%= form_tag do %>
 <%= render 'hosts/signup_signin_form'%>
+<%=submit_tag 'Sign In'%>
+<% end %>
+
+<p>Not a guest? Go to the <%= link_to 'host', hosts_signin_path %> sign-in page.</p>
