@@ -1,0 +1,7 @@
+These are all your events!
+
+<% @events.each do |event|%>
+<%= link_to event.name, event_path(event) %>
+<%= event.description %>
+<%= event.date %><br>
+<% end %>

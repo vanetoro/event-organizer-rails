@@ -1,7 +1,7 @@
 <h3>Host sign-in </h3>
 
 
-<%=form_for @host, :url => { :controller => "sessions", :action => "upload" }  do |f| %>
+<%=form_for @host, :url => { :controller => "sessions", :action => "create" }  do |f| %>
 <%= f.label :email %>:
 <%= f.text_field :email %><br>
 <%= f.label :password %>:

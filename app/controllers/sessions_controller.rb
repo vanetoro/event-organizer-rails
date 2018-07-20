@@ -1,14 +1,13 @@
 class SessionsController < ApplicationController
 
   def new
-    binding.pry
     @host = Host.new
   end
 
   def  create
-    @host = Host.find_by(email: params[:email])
-    binding.pry
-    if @host.authenticate(params[:password])
+    @host = Host.find_by(email: params[:host][:email])
+    if @host.authenticate(params[:host][:password])
+      session[:user_id] = @host.id
       redirect_to events_path
     else
       render :new
