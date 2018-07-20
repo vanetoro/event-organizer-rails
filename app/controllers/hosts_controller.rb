@@ -1,11 +1,7 @@
 class HostsController < ApplicationController
 
-  def signin
-
-  end
-
   def new
-
+    @host = Host.new
   end
 
   def create

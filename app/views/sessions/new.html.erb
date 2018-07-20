@@ -1,0 +1,12 @@
+<h3>Host sign-in </h3>
+
+
+<%=form_for @host, :url => { :controller => "sessions", :action => "upload" }  do |f| %>
+<%= f.label :email %>:
+<%= f.text_field :email %><br>
+<%= f.label :password %>:
+<%= f.password_field :password %><br>
+<%=submit_tag 'Sign In'%>
+<%end%>
+
+<p>Not a host? Go to the <%= link_to 'guest', guests_signin_path %> sign-in page.</p>
