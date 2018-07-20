@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+@vane = Host.new(name: 'Vane', email: 'vane@me.com', :password '1234')
+@rachel = Host.new(name: 'rachel', email: 'rachel@me.com', :password '1234')
+
+@christian = Event.new(name: 'Christian Loefler' :description 'CL @ elsewhere' :date '08/03/18')
