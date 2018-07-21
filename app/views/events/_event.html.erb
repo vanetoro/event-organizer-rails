@@ -11,5 +11,12 @@
 <%= f.text_field :description %><br>
 <%= f.label :date %>
 <%= f.datetime_field :date %><br>
+Select a venue or create a new one.
+<%= f.collection_select :venue, Venue.all, :id, :name %><br>
+<%= f.fields_for :venue, event.build_venue do |venue_fields|  %>
+<%= venue_fields.text_field :name %>
+<%= venue_fields.text_field :location%>
+<% end %>
+
 <%= f.submit %><br>
 <% end %>

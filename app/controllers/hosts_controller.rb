@@ -14,7 +14,9 @@ class HostsController < ApplicationController
     end
   end
 
-
+  def show
+    redirect_to host_events_path(current_host)
+  end
 
   private
 
