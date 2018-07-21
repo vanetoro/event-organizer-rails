@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   resources :events, only: [:new, :create, :show ,:index]
   resources :sessions, only: [:new, :create]
 
-
+   resources :hosts do
+     resources :events, only: [:new, :index]
+   end
 end

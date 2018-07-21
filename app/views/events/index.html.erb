@@ -1,7 +1,10 @@
-These are all your events!
 
-<% @events.each do |event|%>
-<%= link_to event.name, event_path(event) %>
-<%= event.description %>
-<%= event.date %><br>
+<% if @host.events.blank?%>
+  You don't have any events yet why don't you <%= link_to 'add', new_host_event_path(@host) %> one?!
+<% else %>
+
+  <h3>These are all your events!</h3>
+  <% @events.each do |event|%>
+  <%= link_to event.name, event_path(event) %> -<%= event.description %> at <%= event.date.strftime("%A %B %d @ %I:%M %p") %><br>
+  <% end %>
 <% end %>

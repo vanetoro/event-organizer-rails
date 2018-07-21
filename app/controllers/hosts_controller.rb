@@ -5,9 +5,13 @@ class HostsController < ApplicationController
   end
 
   def create
-    binding.pry
     @host = Host.new(host_params)
-    redirect_to events_path
+    if @host.save
+      session[:user_id] = @host.id
+      redirect_to events_path
+    else
+      render :new
+    end
   end
 
 

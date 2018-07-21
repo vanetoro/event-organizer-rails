@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2018_07_20_012314) do
     t.integer "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "guest_id"
   end
 
   create_table "guests", force: :cascade do |t|

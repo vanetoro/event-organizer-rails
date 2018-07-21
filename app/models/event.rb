@@ -1,8 +1,9 @@
 class Event < ApplicationRecord
   belongs_to :host
-  belongs_to :venue
+  belongs_to :venue, optional: true
   has_many :guests
 
   validates :name, presence: true
+
 
 end
