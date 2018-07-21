@@ -5,11 +5,9 @@ Rails.application.routes.draw do
   get 'guests/signin', to: 'guests#signin'
 
   resources :hosts, only: [:new, :create]
-  resources :events, only: [:new, :create, :show ,:index]
   resources :sessions, only: [:new, :create]
 
    resources :hosts do
-     resources :events, only: [:new, :index, :show, :destroy]
-     # get 'events/delete', to: 'events#destroy',  as:'delete'
+     resources :events, only: [:new, :index, :show, :destroy, :update, :create]
    end
 end

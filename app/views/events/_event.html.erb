@@ -1,5 +1,5 @@
 
-<%= form_for @event do |f| %>
+<%= form_for [@host,@event] do |f| %>
 <% if @event.id %>
 <p>Here you can edit or <%= link_to 'Delete', host_event_path(@host,@event),  method: :delete , confirm: "Really?"%> this event.</p>
 

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def  create
     @host = Host.find_by(email: params[:host][:email])
-    if @host.authenticate(params[:host][:password])
+    if @host.authenticate(params[:host][:password]) && !@host.nil?
       session[:user_id] = @host.id
       redirect_to events_path
     else

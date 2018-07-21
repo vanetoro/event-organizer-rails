@@ -1,6 +1,6 @@
 Host.destroy_all
 Event.destroy_all
-
+Venue.destroy_all
 
 @vane = Host.create(name: 'Vane', email: 'vane@me.com', password: '1234')
 @rachel = Host.create(name: 'rachel', email: 'rachel@me.com', password: '1234')
@@ -9,4 +9,4 @@ Event.destroy_all
 @vane.events << @christian
 
 
-@cider_house = Venue.create(:name 'Bushwick Cider House', :location: 'Bushwick')
+@cider_house = Venue.create(name: 'Bushwick Cider House', location: 'Bushwick')

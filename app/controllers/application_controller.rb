@@ -6,9 +6,8 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def creating_or_editing_event
-    if host_logged_in?
-      @event = Event.new
+  def logged_in_and_set_host
+      if host_logged_in?
       current_host
     end
   end
