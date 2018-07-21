@@ -10,9 +10,8 @@ class EventsController < ApplicationController
   end
 
   def new
-    if host_logged_in?
+    if creating_or_editing_event
       @event = Event.new
-      current_host
     else
       redirect_to new_session_path
     end
@@ -28,7 +27,17 @@ class EventsController < ApplicationController
   end
 
   def show
-    binding.pry
+    if creating_or_editing_event
+      @event = Event.find(params[:id])
+    else
+      redirect_to new_session_path
+    end
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    redirect_to host_events_path(@event.host)
   end
 
   private

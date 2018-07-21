@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create]
 
    resources :hosts do
-     resources :events, only: [:new, :index]
+     resources :events, only: [:new, :index, :show, :destroy]
+     # get 'events/delete', to: 'events#destroy',  as:'delete'
    end
 end

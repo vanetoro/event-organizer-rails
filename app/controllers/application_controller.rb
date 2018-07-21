@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def creating_or_editing_event
+    if host_logged_in?
+      @event = Event.new
+      current_host
+    end
+  end
+
   def current_host
     @host ||= Host.find(session[:user_id])
   end

@@ -1,0 +1,15 @@
+
+<%= form_for @event do |f| %>
+<% if @event.id %>
+<p>Here you can edit or <%= link_to 'Delete', host_event_path(@host,@event),  method: :delete , confirm: "Really?"%> this event.</p>
+
+<% end %>
+<%= f.hidden_field :host_id, value: @host.id%>
+<%= f.label :name %>
+<%= f.text_field :name %><br>
+<%= f.label :description %>
+<%= f.text_field :description %><br>
+<%= f.label :date %>
+<%= f.datetime_field :date %><br>
+<%= f.submit %><br>
+<% end %>
