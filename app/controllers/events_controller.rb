@@ -39,7 +39,7 @@ class EventsController < ApplicationController
   def update
    if logged_in_and_set_host
      find_event.update(event_params)
-     find_event.set_venue(event_params)
+     binding.pry
      redirect_to host_events_path(@event.host)
    else
      redirect_to new_session_path
