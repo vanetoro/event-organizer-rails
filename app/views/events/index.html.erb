@@ -9,7 +9,8 @@ Hi <%= @host.name%>,
   <h3>These are all your events!</h3>
   <% @events.each do |event|%>
   <h4><%= link_to event.name, host_event_path(@host, event) %></h4>
-  <%= event.description %> on <%= event.date.strftime("%A %B %d @ %I:%M %p") %><br>
+
+  <%= event.description %> on <% event.date.strftime("%A %B %d @ %I:%M %p") %>  at <%= event.venue  if !event.venue.blank?%><br>
   <% end %>
 
 <p><%= link_to 'Add Event', new_host_event_path(@host) %></p>

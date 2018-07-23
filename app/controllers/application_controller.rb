@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   end
 
+
+
   def logged_in_and_set_host
       if host_logged_in?
       current_host
@@ -19,4 +21,10 @@ class ApplicationController < ActionController::Base
   def host_logged_in?
     !!current_host
   end
+
+  def create_venue(params)
+    @venue = Venue.create(name: params[:name], location: params[:location])
+    @venue.save
+  end
+
 end
