@@ -5,17 +5,17 @@ class Event < ApplicationRecord
 
   validates :name, presence: true
 
-  def venue_attributes=(attr)
-    venue = Venue.create(attr)
+  def venue_attributes=(params)
+    venue = Venue.find_or_create_by(name: params[:name], location: params[:location])
     self.venue = venue
   end
 
-  def venue=(venue)
-    if venue.class == String
-      binding.pry
-    self.venue =  Venue.find(venue)
-    end
-  end
+  # def venue=(venue)
+  #   if venue.class == String
+  #     binding.pry
+  #   self.venue =  Venue.find(venue)
+  #   end
+  # end
 
   def venue
   end

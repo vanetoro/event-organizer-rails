@@ -22,9 +22,7 @@ class ApplicationController < ActionController::Base
     !!current_host
   end
 
-  def create_venue(params)
-    @venue = Venue.create(name: params[:name], location: params[:location])
-    @venue.save
-  end
-
+# def set_venue(params)
+#   if !params[:venue_attributes].nil?
+# end
 end

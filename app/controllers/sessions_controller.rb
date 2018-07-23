@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     @host = Host.find_by(email: params[:host][:email])
     if @host.authenticate(params[:host][:password]) && !@host.nil?
       session[:user_id] = @host.id
-      redirect_to events_path
+      redirect_to host_events_path
     else
       render :new
     end
