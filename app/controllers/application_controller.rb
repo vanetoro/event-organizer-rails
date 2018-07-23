@@ -22,7 +22,5 @@ class ApplicationController < ActionController::Base
     !!current_host
   end
 
-# def set_venue(params)
-#   if !params[:venue_attributes].nil?
-# end
+
 end

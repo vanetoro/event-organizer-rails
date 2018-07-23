@@ -18,11 +18,10 @@ class EventsController < ApplicationController
   end
 
   def create
+    binding.pry
     @event = Event.new(event_params)
+
     if @event.save
-      if params[:event][:venue_attributes]
-         create_venue
-      end
       redirect_to host_events_path(@event.host)
     else
       render :new
@@ -40,7 +39,7 @@ class EventsController < ApplicationController
   def update
    if logged_in_and_set_host
      find_event.update(event_params)
-     binding.pry
+     find_event.set_venue(event_params)
      redirect_to host_events_path(@event.host)
    else
      redirect_to new_session_path
@@ -57,7 +56,7 @@ class EventsController < ApplicationController
 
 
   def event_params
-     params.require(:event).permit(:name, :description, :date ,:host_id, :venue, venue_attributes: [:name, :location])
+     params.require(:event).permit(:name, :description, :date ,:host_id, :venue_id, venue_attributes: [:name, :location])
    end
 
  def find_event
