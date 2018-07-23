@@ -2,7 +2,6 @@
 <%= f.hidden_field :host_id, value: host.id%>
 <div id="event-name">
   <%= f.label :name %>
-
 </div>
   <%= f.text_field :name %><br>
 <div id="event-description">
@@ -23,7 +22,7 @@ Or create a new one!<br>
 <%= venue_fields.label :name %>
 <%= venue_fields.text_field :name %>
 <%= venue_fields.label :location %>
-<%= venue_fields.text_field :location%>
+<%= venue_fields.text_field :location%><br>
 <% end %>
-<%= f.submit %><br>
+<%= f.submit %>
 <% end %>

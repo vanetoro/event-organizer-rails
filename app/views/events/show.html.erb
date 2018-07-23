@@ -1,11 +1,2 @@
-<%= form_for [@host,@event] do |f| %>
-<% if @event.id %>
-<p>Here you can edit or <%= link_to 'Delete', host_event_path(@host,@event),  method: :delete%> this event.</p>
-
-<% end %>
-
-<%= render partial: 'event', locals:{event: @event} %>
-<% end %>
-
-<%= f.submit %><br>
-<% end %>
+<p>Here you can make any changes to your event or <%= link_to 'Delete', host_event_path(@host,@event),  method: :delete%> this event.</p>
+<%= render partial: 'event', locals:{event: @event, host: @host} %>
