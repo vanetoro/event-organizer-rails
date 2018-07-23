@@ -7,8 +7,10 @@ class Event < ApplicationRecord
 
 
   def venue_attributes=(params)
-    venue = Venue.find_or_create_by(name: params[:name].titleize, location: params[:location].titleize)
-    self.venue = venue
+    if !params[:name].blank? && !params[:location].blank?
+      venue = Venue.find_or_create_by(name: params[:name].titleize, location: params[:location].titleize)
+      self.venue = venue
+    end
   end
 
 
