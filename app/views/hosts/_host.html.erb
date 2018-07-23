@@ -1,11 +1,20 @@
 <%= form_for (@host) do |f|  %>
-<%= f.label :name %>:
+<div id='host-name'>
+  <%= f.label :name %>:
+</div>
 <%= f.text_field :name %><br>
+</div>
+<div id='host-email'>
 <%= f.label :email %>:
+</div>
 <%= f.text_field :email %><br>
+<div id='host-password'>
 <%= f.label :password %>:
+</div>
 <%= f.password_field :password %><br>
+<div id='host-pass-confirm'>
 <%= f.label :password_confirmation, 'Confirm Password' %>:
+</div>
 <%= f.password_field :password_confirmation %><br>
-<%= f.submit 'Create Host' %>
+<%= f.submit  %>
 <% end %>

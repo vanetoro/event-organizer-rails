@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'guests/signin', to: 'guests#signin'
 
-  resources :hosts, only: [:new, :create, :edit]
+  resources :hosts, only: [:new, :create, :edit, :update]
   resources :sessions, only: [:new, :create]
 
   get 'hosts/:id/signout', to: 'sessions#destroy'
