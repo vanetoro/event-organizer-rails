@@ -1,22 +1,29 @@
-
 <%= form_for [@host,@event] do |f| %>
-<% if @event.id %>
-<p>Here you can edit or <%= link_to 'Delete', host_event_path(@host,@event),  method: :delete%> this event.</p>
+<%= f.hidden_field :host_id, value: host.id%>
+<div id="event-name">
+  <%= f.label :name %>
 
-<% end %>
-<%= f.hidden_field :host_id, value: @host.id%>
-<%= f.label :name %>
-<%= f.text_field :name %><br>
-<%= f.label :description %>
+</div>
+  <%= f.text_field :name %><br>
+<div id="event-description">
+  <%= f.label :description %>
+</div>
 <%= f.text_field :description %><br>
-<%= f.label :date %>
+<div id="event-date">
+  <%= f.label :date %>
+</div>
 <%= f.datetime_field :date %><br>
-Select a venue or create a new one.
+<br>
+<div id="event-venue">
+  Select a venue
+</div>
 <%= f.collection_select :venue_id, Venue.all, :id, :name, include_blank: 'Select Location' %><br>
+Or create a new one!<br>
 <%= f.fields_for :venue, event.build_venue do |venue_fields|  %>
+<%= venue_fields.label :name %>
 <%= venue_fields.text_field :name %>
+<%= venue_fields.label :location %>
 <%= venue_fields.text_field :location%>
 <% end %>
-
 <%= f.submit %><br>
 <% end %>

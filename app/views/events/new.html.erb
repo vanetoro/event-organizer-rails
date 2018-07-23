@@ -1,3 +1,5 @@
 <h1>Create a new Event</h1>
-
-<%= render partial: 'event', locals:{event: @event} %>
+<%= form_for [@host,@event] do |f| %>
+<%= render partial: 'event', locals:{event: @event, host: @host } %>
+<%= f.submit %><br>
+<% end %>

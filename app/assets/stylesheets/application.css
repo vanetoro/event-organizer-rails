@@ -18,6 +18,26 @@
 
  }
 
+#event-name{
+  margin-right: 70px;
+  float: left;
+}
+
+#event-description{
+  margin-right: 32px;
+  float: left;
+}
+
+#event-date{
+  margin-right: 80px;
+  float: left;
+}
+
+#event-venue{
+  margin-right: 10px;
+  float: left;
+}
+
  nav a{
    color: #96a4b7;
    margin-right: 20px
