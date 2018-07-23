@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  layout :logged_in
+  layout 'logged_in', only: [:index]
 
   def index
      if  host_logged_in?

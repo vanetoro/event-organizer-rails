@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event Organizer</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav><%= link_to 'Create Event', new_host_event_path%> <%= link_to 'Edit Profile', edit_host_path(@host) %> <a href='signout'> Sign Out </a>  </nav>
+    <%= yield %>
+  </body>
+</html>
