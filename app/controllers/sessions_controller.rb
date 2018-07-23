@@ -1,7 +1,13 @@
 class SessionsController < ApplicationController
 
   def new
-    @host = Host.new
+    if session[:user_id]
+      current_host
+      binding.pry
+      redirect_to host_events_path(current_host)
+    else
+      @host = Host.new
+    end
   end
 
   def  create
@@ -12,5 +18,10 @@ class SessionsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    session.clear
+    redirect_to new_session_path
   end
 end

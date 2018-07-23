@@ -5,15 +5,3 @@
 <%end%>
 
 <h3>New Host</h3>
-
-<%= form_for (@host) do |f|  %>
-<%= f.label :name %>:
-<%= f.text_field :name %><br>
-<%= f.label :email %>:
-<%= f.text_field :email %><br>
-<%= f.label :password %>:
-<%= f.password_field :password %><br>
-<%= f.label :password_confirmation, 'Confirm Password' %>:
-<%= f.password_field :password_confirmation %><br>
-<%= f.submit 'Create Host' %>
-<% end %>

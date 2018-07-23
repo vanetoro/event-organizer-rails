@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  # before_action :logged_in_and_set_host, only[:new, :create, :update, :show]
+  layout :logged_in
 
   def index
      if  host_logged_in?
@@ -18,13 +18,15 @@ class EventsController < ApplicationController
   end
 
   def create
-    binding.pry
+    if logged_in_and_set_host
     @event = Event.new(event_params)
-
-    if @event.save
-      redirect_to host_events_path(@event.host)
+      if @event.save
+        redirect_to host_events_path(@event.host)
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to new_session_path
     end
   end
 

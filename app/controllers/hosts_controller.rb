@@ -1,5 +1,5 @@
 class HostsController < ApplicationController
-
+  layout :logged_in, :only => :edit, :show
   def new
     @host = Host.new
   end
@@ -8,9 +8,17 @@ class HostsController < ApplicationController
     @host = Host.new(host_params)
     if @host.save
       session[:user_id] = @host.id
-      redirect_to events_path
+      redirect_to host_events_path(@host)
     else
       render :new
+    end
+  end
+
+  def edit
+    if logged_in_and_set_host
+      current_host
+    else
+      redirect_to  new_session_path
     end
   end
 
