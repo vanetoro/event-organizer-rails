@@ -1,0 +1,12 @@
+<% @events.each do |event|%>
+<div class="event-index">
+  <h4><%= link_to event.name, host_event_path(@host, event) %></h4>
+  <%= event.date.strftime("%A %B %d @ %I:%M %p") if !event.date.blank?%><br>
+  <%= event.description %> at
+    <%if event.venue.blank? %>
+      <%= 'TBA' %>
+    <% else %>
+   <%= link_to event.venue.name, host_venue_path(@host, event.venue) %>
+  <% end %>
+</div>
+<% end %>
