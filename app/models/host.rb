@@ -17,4 +17,16 @@ class Host < ApplicationRecord
   def events_by_venue(venue_id)
     self.events.all.where(venue_id: venue_id)
   end
+
+
+  # def self.from_omniauth(auth)
+  #   where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |host|
+  #     host.provider = auth.provider
+  #     host.uid = auth.uid
+  #     host.name = auth.info.name
+  #     host.oauth_token = auth.credentials.token
+  #     host.oauth_expires_at = Time.at(auth.credentials.expires_at)
+  #     host.save!
+  #   end
+  # end
 end

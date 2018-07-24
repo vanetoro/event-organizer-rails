@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'application#welcome'
-
+  get 'auth/google_oauth2/callback', to: 'sessions#create_google'
   get 'guests/signin', to: 'guests#signin'
 
   resources :hosts, only: [:new, :create, :edit, :update]
@@ -15,3 +15,14 @@ Rails.application.routes.draw do
      resources :venues, only: [:show]
    end
 end
+
+# GoogleAuthExample::Application.routes.draw do
+#
+#   get 'auth/failure', to: redirect('/')
+#   get 'signout', to: 'sessions#destroy', as: 'signout'
+#
+#   resources :sessions, only: [:create, :destroy]
+#   resource :home, only: [:show]
+#
+#   root to: "home#show"
+# end
