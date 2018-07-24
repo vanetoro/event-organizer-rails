@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user
+  helper_method :current_host, :logged_in_and_set_host
 
 
   def welcome
@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
   def host_logged_in?
     !!current_host
   end
+
 
 
 end
