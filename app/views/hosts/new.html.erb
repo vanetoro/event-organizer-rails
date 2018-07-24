@@ -1,9 +1,9 @@
-<% if @host.errors.any? %>
-  <% @host.errors.full_messages.each do |message|%>
+<div class= "login-errors"><% if @host.errors.any? %>
+  <% @host.errors.full_messages.each do |message|%><br>
     <%= message %>
   <%end%>
 <%end%>
-
+</div>
 <h3>New Host</h3>
 
 
