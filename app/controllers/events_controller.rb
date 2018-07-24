@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def index
      if  host_logged_in?
-      @events =  current_host.events
+      @events =  @host.ordered_events
     else
       redirect_to new_session_path
     end
