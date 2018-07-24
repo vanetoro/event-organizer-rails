@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'application#welcome'
   get 'auth/google_oauth2/callback', to: 'sessions#create_google'
   get 'guests/signin', to: 'guests#signin'
+  get 'venues/most_popular', to: 'venues#most_popular'
 
   resources :hosts, only: [:new, :create, :edit, :update]
   resources :sessions, only: [:new, :create]
