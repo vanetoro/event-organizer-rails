@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
 
 
   def create_google
-
     @host = Host.find_or_create_by(email: auth[:info][:email]) do |u|
       u.name = auth['info']['name']
       u.email = auth['info']['email']
@@ -37,7 +36,7 @@ end
 
   def destroy
     session.clear
-    redirect_to new_session_path
+    redirect_to root_path
   end
 
   private

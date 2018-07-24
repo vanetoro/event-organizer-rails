@@ -5,7 +5,7 @@ class EventsController < ApplicationController
      if  host_logged_in?
       @events =  @host.ordered_events
     else
-      redirect_to new_session_path
+      redirect_to root_path
     end
   end
 
@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     if logged_in_and_set_host
       @event = Event.new
     else
-      redirect_to new_session_path
+      redirect_to root_path
     end
   end
 
@@ -26,7 +26,7 @@ class EventsController < ApplicationController
         render :new
       end
     else
-      redirect_to new_session_path
+      redirect_to root_path
     end
   end
 
@@ -34,7 +34,7 @@ class EventsController < ApplicationController
     if logged_in_and_set_host
       find_event
     else
-      redirect_to new_session_path
+      redirect_to root_path
     end
   end
 
@@ -43,14 +43,18 @@ class EventsController < ApplicationController
      find_event.update(event_params)
      redirect_to host_events_path(@event.host)
    else
-     redirect_to new_session_path
+     redirect_to root_path
    end
   end
 
   def destroy
-    find_event
-    @event.destroy
-    redirect_to host_events_path(@event.host)
+    if logged_in_and_set_host
+      find_event
+      @event.destroy
+      redirect_to host_events_path(@event.host)
+    else
+      redirect_to root_path
+    end
   end
 
   private
