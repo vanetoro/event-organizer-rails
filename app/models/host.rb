@@ -6,10 +6,10 @@ class Host < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
   validates :email, uniqueness: true
-  validates :email, confirmation: true
   validates :password, length: {minimum: 4}
   validates :password, presence: true
-
+  validates :password, confirmation: true
+  validates :password_confirmation, presence: { message: ': Passwords must match'}
 
   def ordered_events
     self.events.order(:date)
