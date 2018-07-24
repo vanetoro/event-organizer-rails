@@ -1,5 +1,7 @@
 class HostsController < ApplicationController
 layout 'logged_in', only: [:index, :show , :edit]
+before_action :unauthorized, only: [:edit]
+
   def new
     @host = Host.new
   end
@@ -15,12 +17,7 @@ layout 'logged_in', only: [:index, :show , :edit]
   end
 
   def edit
-    if logged_in_and_set_host
-      current_host
 
-    else
-      redirect_to  new_session_path
-    end
   end
 
   def show
@@ -29,8 +26,8 @@ layout 'logged_in', only: [:index, :show , :edit]
 
   def update
     if host_logged_in?
-      @host = Host.update(host_params)
-      binding.pry
+      @host = Host.find_by(id: params[:id])
+      @host.update(host_params)
       if @host.save
         redirect_to host_events_path(@host)
       end

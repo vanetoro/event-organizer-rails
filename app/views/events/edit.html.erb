@@ -1,0 +1,4 @@
+This is the edit page
+
+<p>Here you can make any changes to your event or <%= link_to 'delete', host_event_path(@event.host,@event),  method: :delete%> this event.</p>
+<%= render partial: 'event', locals:{event: @event, host: @event.host} %>

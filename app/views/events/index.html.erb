@@ -7,8 +7,9 @@ Hi <%= @host.name%>,
 <% else %>
 
   <h3>These are all your events!</h3>
-  <%= render partial: 'show_events', locals:{events: @events} %>
+  <% @events.each do |event|%>
+  <%= render partial: 'show_events', locals:{event: event} %>
+<% end %>
 
-<p><%= link_to 'Add Event', new_host_event_path(@host) %></p>
 
 <% end %>

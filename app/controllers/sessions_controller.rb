@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
     end
   end
 
-
   def create_google
     @host = Host.find_or_create_by(email: auth[:info][:email]) do |u|
       u.name = auth['info']['name']
@@ -17,19 +16,18 @@ class SessionsController < ApplicationController
       u.password = SecureRandom.hex
       @host.save
     end
-
     session[:user_id] = @host.id
     redirect_to host_events_path(@host)
-end
+ end
 
   def  create
-    @host = Host.new
     @host = Host.find_by(email: params[:host][:email])
     if !@host.nil? && @host.authenticate(params[:host][:password])
       session[:user_id] = @host.id
       redirect_to host_events_path(@host)
     else
-
+      @host = Host.new if @host.nil?
+      @host.save
       render :new
     end
   end
@@ -42,7 +40,7 @@ end
   private
 
   def auth
-  request.env['omniauth.auth']
+    request.env['omniauth.auth']
   end
 
 end

@@ -5,12 +5,18 @@ class Venue < ApplicationRecord
   validates :name, presence: true
   validates :location, presence: true
 
+
+
   def self.all_venues
-    self.all.uniq
+    self.all.order(name: :asc)
   end
 
   def self.most_popular_venue
-    binding.pry
-    joins(:events).group('venue_id').count
+    joins(:events).group('venue_id').order('count(events.venue_id)desc').limit(5)
   end
+
+  def self.least_popular_venue
+    joins(:events).group('venue_id').order('count(events.venue_id)asc').limit(5)
+  end
+
 end

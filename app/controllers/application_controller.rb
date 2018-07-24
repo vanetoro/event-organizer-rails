@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_host, :logged_in_and_set_host
+  helper_method :current_host, :logged_in_and_set_host, :unauthorized
 
 
   def welcome
@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
 
   def logged_in_and_set_host
       if host_logged_in?
-      current_host
-    end
+        current_host
+      end
   end
 
   def current_host
@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
     !!current_host
   end
 
-
+  def unauthorized
+    if !logged_in_and_set_host
+      redirect_to root_path
+    end
+  end
 
 end
