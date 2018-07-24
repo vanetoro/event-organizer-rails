@@ -1,5 +1,5 @@
 class VenuesController < ApplicationController
-  layout 'logged_in', only: [:show, :index]
+  layout 'logged_in', only: [:show, :index, :most_popular]
 
   def show
     if logged_in_and_set_host
@@ -11,7 +11,16 @@ class VenuesController < ApplicationController
 
   def index
     current_host
+    @most_popular = false
     @venues = Venue.all_venues
-    @most_popular = Venue.most_popular_venue
   end
+
+  def most_popular
+    current_host
+    @most_popular = true
+     @venues = Venue.most_popular_venue
+     render :index
+   end
+
+
 end
