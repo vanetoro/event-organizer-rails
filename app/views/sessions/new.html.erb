@@ -2,11 +2,16 @@
 
 
 <%=form_for @host, :url => { :controller => "sessions", :action => "create" }  do |f| %>
+
+<div class='host-email-signin'>
 <%= f.label :email %>:
+</div>
 <%= f.text_field :email %><br>
+<div class='host-password-signin'>
 <%= f.label :password %>:
+</div>
 <%= f.password_field :password %><br>
-<%=submit_tag 'Sign In'%>
+<%=f.submit 'Sign In'%>
 <%end%>
 
-<p>Not a host? Go to the <%= link_to 'guest', guests_signin_path %> sign-in page.</p>
+<p>Don't have an account <%= link_to 'Sign-Up', new_host_path %>.</p>
