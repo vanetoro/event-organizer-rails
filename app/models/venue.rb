@@ -6,7 +6,6 @@ class Venue < ApplicationRecord
   validates :location, presence: true
 
 
-
   def self.all_venues
     self.all.order(name: :asc)
   end

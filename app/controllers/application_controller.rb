@@ -1,11 +1,9 @@
 class ApplicationController < ActionController::Base
   helper_method :current_host, :logged_in_and_set_host, :unauthorized
 
-
   def welcome
 
   end
-
 
   def logged_in_and_set_host
       if host_logged_in?
