@@ -8,4 +8,13 @@ class Host < ApplicationRecord
   validates :email, uniqueness: true
   validates :password, length: {minimum: 4}
   validates :password, presence: true
+
+
+  def ordered_events
+    self.events.order(:date)
+  end
+
+  def events_by_venue(venue_id)
+    self.events.all.where(venue_id: venue_id)
+  end
 end
