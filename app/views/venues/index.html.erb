@@ -1,5 +1,8 @@
-These are all the events
-
+<% if @most_popular == true %>
+<h4>These are the top 5 venues</h4>
+<% else %>
+These are all the venues!
+<% end %>
 <% @venues.each do |venue| %>
 <h3><%= venue.name %> </h3>
 # of events <%= venue.events.count %>
