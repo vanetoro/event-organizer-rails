@@ -18,6 +18,10 @@ class Host < ApplicationRecord
     self.events.all.where(venue_id: venue_id)
   end
 
+  # def validate!
+  #    self.errors.add(:name, :blank, message: "cannot be blank") if name.nil?
+  #    self.errors.add(:name, :blank, message: "cannot be blank") if email.nil?
+  #  end
 
   # def self.from_omniauth(auth)
   #   where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |host|

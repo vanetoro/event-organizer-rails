@@ -1,3 +1,11 @@
 These are all the events
 
-<%= render partial: 'events/show_events', locals: {events: @events} %>
+<% @venues.each do |venue| %>
+<h3><%= venue.name %> </h3>
+# of events <%= venue.events.count %>
+  <ul>
+  <% venue.events.each do |event| %>
+  <li><%=link_to event.name, event_path(event) %> hosted by : <%= event.host.name %> </li>
+    <% end %>
+</ul>
+  <% end %>

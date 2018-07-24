@@ -8,4 +8,8 @@ class VenuesController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def index
+    @venues = Venue.all_venues
+  end
 end

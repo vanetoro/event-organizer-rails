@@ -1,17 +1,16 @@
 <h3>Host sign-in </h3>
 
 
-<%=form_for @host, :url => { :controller => "sessions", :action => "create" }  do |f| %>
-
+<%= form_for (@host), :url => { :controller => "sessions", :action => "create" }  do |f| %>
 <div class='host-email-signin'>
-<%= f.label :email %>:
+  <%= f.label :email %>:
 </div>
-<%= f.text_field :email %><br>
+  <%= f.text_field :email %><br>
 <div class='host-password-signin'>
-<%= f.label :password %>:
+  <%= f.label :password %>:
 </div>
-<%= f.password_field :password %><br>
-<%=f.submit 'Sign In'%>
+  <%= f.password_field :password %><br>
+  <%= f.submit 'Sign In'%>
 <%end%>
 
 <p>Don't have an account <%= link_to 'Sign-Up', new_host_path %>.</p>
