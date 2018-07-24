@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
   def new
     if session[:user_id]
       current_host
-      binding.pry
       redirect_to host_events_path(current_host)
     else
       @host = Host.new
@@ -16,7 +15,6 @@ class SessionsController < ApplicationController
       u.name = auth['info']['name']
       u.email = auth['info']['email']
       u.password = SecureRandom.hex
-      binding.pry
       @host.save
     end
 
