@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <nav><%= link_to 'All Events', host_events_path(@host)%><%= link_to 'Create Event', new_host_event_path(@host)%> <%= link_to 'Edit Profile', edit_host_path(@host) %> <a href='signout'> Sign Out </a>  </nav>
+    <nav><%= link_to 'All Events', venues_path%><%= link_to 'All Your Events', host_events_path(@host)%><%= link_to 'Create Event', new_host_event_path(@host)%> <%= link_to 'Edit Profile', edit_host_path(@host) %> <a href='signout'> Sign Out </a>  </nav>
     <%= yield %>
   </body>
 </html>

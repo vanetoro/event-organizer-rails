@@ -3,7 +3,4 @@
 
 
 
-Are you a <%= link_to 'host', new_session_path %> or <%= link_to 'guest', guests_signin_path %>?
-
-Or log in via <%= link_to 'Google', '/auth/google_oauth2' %>
-<p>Do you need a new account to get your party started? Sign up <%= link_to 'here', new_host_path %></p>
+<%= link_to 'Sign-in', new_session_path %>,  <%= link_to 'Sign-up', new_host_path %> or log in via <%= link_to 'Google', '/auth/google_oauth2' %></p>
