@@ -8,4 +8,9 @@ class Venue < ApplicationRecord
   def self.all_venues
     self.all.uniq
   end
+
+  def self.most_popular_venue
+    binding.pry
+    joins(:events).group('venue_id').count
+  end
 end

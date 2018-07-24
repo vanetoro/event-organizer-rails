@@ -31,10 +31,10 @@ class EventsController < ApplicationController
   end
 
   def show
-    if logged_in_and_set_host
+    if logged_in_and_set_host  == find_event.host
       find_event
     else
-      redirect_to root_path
+      redirect_to host_events_path(current_host)
     end
   end
 

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :venues, only: [:index]
   resources :events, only: [:show]
 
-  get 'hosts/:id/signout', to: 'sessions#destroy'
+  get '/signout', to: 'sessions#destroy'
 
    resources :hosts do
      resources :events, only: [:new, :index, :show, :destroy, :update, :create]
