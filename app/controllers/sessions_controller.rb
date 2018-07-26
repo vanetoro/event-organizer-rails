@@ -26,8 +26,8 @@ class SessionsController < ApplicationController
       session[:user_id] = @host.id
       redirect_to host_events_path(@host)
     else
-      @host = Host.new if @host.nil?
-      @host.save
+      flash[:error] = 'Email or password is incorrect. Please try again.'
+      @host = Host.new
       render :new
     end
   end
