@@ -1,6 +1,10 @@
 <h3>Host sign-in </h3>
+<div class="login-errors">
+  <% if flash[:error] %>
+  <%= flash[:error] %>
+  <% end %>
+</div>
 
- <%= display_errors(@host) %>
 
 <%= form_for (@host), :url => { :controller => "sessions", :action => "create" }  do |f| %>
 <div class='host-email-signin'>
