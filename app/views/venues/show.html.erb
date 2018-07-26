@@ -1,4 +1,7 @@
 These are your events at <%=@events[0].venue.name %>
 
 
-<%= render partial: 'events/show_events', locals: {events: @events} %>
+
+<% @events.each do |event| %>
+<%= render partial: 'events/show_events', locals: {event: event} %>
+<% end %>
