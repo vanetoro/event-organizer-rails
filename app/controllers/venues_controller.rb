@@ -3,7 +3,7 @@ class VenuesController < ApplicationController
   before_action :unauthorized, only: [:show]
 
   def show
-      @events = current_host.events_by_venue(params[:id])
+      @venue = Venue.find(params[:id])
   end
 
   def index
