@@ -4,8 +4,8 @@
 These are all the venues!
 <% end %>
 <% @venues.each do |venue| %>
-<h3><%= venue.name %> </h3>
-# of events <%= venue.events.count %>
+<h3 class="venues-title"><%= link_to venue.name, venue_path(venue) %> </h3>
+<%= display_num_of_events(venue) %>
   <ul>
   <% venue.events.each do |event| %>
   <li><%=link_to event.name, event_path(event) %> hosted by : <%= event.host.name %> </li>
