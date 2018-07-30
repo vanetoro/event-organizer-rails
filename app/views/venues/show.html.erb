@@ -1,7 +1,10 @@
-These are your events at <%=@events[0].venue.name %>
 
-
-
-<% @events.each do |event| %>
-<%= render partial: 'events/show_events', locals: {event: event} %>
+<% if @venue.events.length > 0 %>
+These are your events at <%=@venue.name %><br>
+  <% @venue.events.each do |event| %>
+    <%= render partial: 'events/show_events', locals: {event: event} %>
+  <% end  %>
+  <% else %>
+  <br>
+  Currently you don't have any events at <%=@venue.name %>
 <% end %>
