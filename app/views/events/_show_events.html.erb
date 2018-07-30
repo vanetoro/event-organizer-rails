@@ -1,11 +1,11 @@
 
 <div class="event-index">
-  <h4><%= link_to event.name, host_event_path(@host, event) %></h4>
+  <h4 class="event-title"><%= link_to event.name, host_event_path(@host, event) %></h4>
   <%= event.date.strftime("%A %B %d @ %I:%M %p") if !event.date.blank?%><br>
   <%= event.description %> at
     <%if event.venue.blank? %>
       <%= 'TBA' %>
     <% else %>
-   <%= link_to event.venue.name, host_venue_path(@host, event.venue) %>
+   <%= link_to event.venue.name, venue_path(event.venue) %>
   <% end %>
 </div>
